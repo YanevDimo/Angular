@@ -101,3 +101,4 @@ let numArray = getArray([1, 2, 3, 4]);
 let strArray = getArray(['Kiko', 'Domi', 'Jil']);
 strArray.push('hello');
 numArray.push(1, 2, 3);
+console.log(null || 'string');

@@ -149,3 +149,6 @@ let strArray = getArray<string>(['Kiko','Domi','Jil'])
 
 strArray.push('hello')
 numArray.push(1,2,3)
+
+
+console.log(null || 'string')
