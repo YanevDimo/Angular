@@ -1,0 +1,10 @@
+.wraper{
+    border: 2px solid blue;
+    width: 350px;
+    height: 180px;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: antiquewhite;
+}
