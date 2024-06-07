@@ -51,11 +51,38 @@ export class RecipeServiceService {
       .pipe(tap((updateRecipe) => {
         const currentState = this.recipeSubject.value;
         const updateRecipes = this.currentState.recipe
-          .map((item: any) => item.id === updateRecipe.id
+          .map((item: any) => item.id === updateRecipe
           ? updateRecipe
           : item
         )
         this.recipeSubject.next({ ...currentState, recipes:updateRecipe})
+      }));
+  }
+
+  deleteRecipes(id:any): Observable<any>{
+    const headers = this.getHeaders
+    return this.http.delete(`${this.baseUrl}/api/recipe${id}`, { headers })
+      .pipe(tap((deleteRecipe) => {
+        const currentState = this.recipeSubject.value;
+        const updateRecipes = this.currentState.recipe.filter
+          .map((item: any) => item.id !== id
+          
+        )
+        this.recipeSubject.next({ ...currentState, recipes:updateRecipes})
+      }));
+  }
+
+  
+  likeRecipes(id:any): Observable<any>{
+    const headers = this.getHeaders
+    return this.http.put(`${this.baseUrl}/api/recipe${id}/id`, { headers })
+      .pipe(tap((deleteRecipe) => {
+        const currentState = this.recipeSubject.value;
+        const updateRecipes = this.currentState.recipe.filter
+          .map((item: any) => item.id !== id
+          
+        )
+        this.recipeSubject.next({ ...currentState, recipes:updateRecipes})
       }));
   }
 }
